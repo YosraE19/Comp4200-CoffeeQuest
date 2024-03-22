@@ -1,4 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--Log in page:
+    VALID CASE:
+        - If the log in information is valid it takes the user to the home page
+        - and gets the user name for the home page to be concatenated with the welcome textView
+    FAIL CASE:
+        -Show a toast message saying that it is invalid
+        -Stays on activity_main page
+
+    Remember Me checkbox:
+        -will remember the user login information
+-->
+<!--TODO: Validate the user log in information-->
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"

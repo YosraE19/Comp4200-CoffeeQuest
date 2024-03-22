@@ -1,8 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!--
+Sign up Page:
+    - User enters the following (must be stored into database - email is the primary key)
+        - Nickname
+        - Email
+        - Password
+    - Press the sign up button
+        - Take the user to ***home page***
+        - Stores the user info
+-->
+<!--TODO: Store the user account information to database -->
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/nicknameTitle"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#f8f8f8"

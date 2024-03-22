@@ -1,4 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    Home Page:
+    - When the user home page appears, get the users nickname
+        - “Welcome + Nickname”
+    - 3 cards:
+        - Rewards/points
+        - Offers(discounts)
+        - Order
+    - Account icon at the top that will take the user to ***account page***
+    - Back icon that will take the use to the ***previous page***
+    - Home button that will take the user to ***home page***
+-->
+<!--TODO:Create the other 2 cards in Java just like in week 8 lecture, and link the pages with the corresponding cards, images and buttons -->
+
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -12,22 +27,23 @@
         android:id="@+id/welcomeText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="128dp"
         android:fontFamily="@font/blinker"
-        android:paddingRight="200dp"
+        android:paddingEnd="200dp"
+        android:paddingStart="0dp"
         android:text="Welcome\n"
         android:textColor="#343341"
-        android:textSize="40sp"
+        android:textSize="50sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardOptions"
+        android:id="@+id/menuOptions"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="40dp"
         app:cardCornerRadius="22dp"
         app:cardElevation="2dp"
         app:cardUseCompatPadding="true"
@@ -35,7 +51,8 @@
         app:layout_constraintTop_toBottomOf="@+id/welcomeText">
 
         <ImageView
-            android:id="@+id/imageView"
+            android:contentDescription="card image"
+            android:id="@+id/itemImage"
             android:layout_width="100dp"
             android:layout_height="100dp" />
 
@@ -49,5 +66,25 @@
 
 
     </androidx.cardview.widget.CardView>
+
+    <ImageView
+        android:id="@+id/userAccountIcon"
+        android:layout_width="95dp"
+        android:layout_height="95dp"
+        android:contentDescription="user account icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/user_account_logo" />
+
+    <ImageView
+        android:id="@+id/homeBtn"
+        android:layout_width="160dp"
+        android:layout_height="136dp"
+        android:layout_marginStart="125dp"
+        android:layout_marginBottom="-30dp"
+        android:contentDescription="home button icon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/home_button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

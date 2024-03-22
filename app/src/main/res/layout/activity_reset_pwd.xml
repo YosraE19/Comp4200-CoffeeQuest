@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+Reset Password Page:
+    -When user presses send code
+        -they’ll receive an email of 4 digit code to enter
+        -and it will take the use to 2nd page of reset password:
+            -user enters the code (must validate)
+            -user their new password (update the database)
+-->
+<!--TODO: Change the old password by updating to a new password (need to update the password in database) -->
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
