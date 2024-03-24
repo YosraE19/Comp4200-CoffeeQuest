@@ -43,10 +43,11 @@ public class MainActivity extends AppCompatActivity {
         forgot_pwd = findViewById(R.id.forgotPwd);
 
 
-        //Initialize DB and insert default user/reward records
+        //Initialize DB
         MyDBHelper dbHelper = new MyDBHelper(getApplicationContext());
+
         // Insert initial user data -- ONLY INCLUDE ON FIRST LAUNCH OF APP
-        /*
+         /*
         dbHelper.addUser("minern@uwindsor.ca", "minern", "Password!123");
         dbHelper.addUser("azzam2@uwindsor.ca", "azzam2", "Password!123");
         dbHelper.addUser("ismai11a@uwindsor.ca", "ismai11a", "Password!123");
@@ -60,6 +61,8 @@ public class MainActivity extends AppCompatActivity {
         dbHelper.addReward(0, 4);
         dbHelper.addReward(0, 5);
         */
+
+
 
 
 

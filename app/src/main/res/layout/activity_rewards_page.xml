@@ -9,4 +9,130 @@
     android:layout_height="match_parent"
     tools:context=".RewardsPage">
 
+
+    <ImageView
+        android:id="@+id/backBtnRewards"
+        android:layout_width="95dp"
+        android:layout_height="95dp"
+        android:contentDescription="@string/back_arrow_image_btn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/back_arrow" />
+
+    <ImageView
+        android:id="@+id/homeBtnRewards"
+        android:layout_width="135dp"
+        android:layout_height="129dp"
+        android:layout_marginStart="138dp"
+        android:layout_marginBottom="-30dp"
+        android:contentDescription="@string/home_button_icon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/home_button" />
+
+    <!--implement the scrollview-->
+
+    <Button
+        android:id="@+id/getPointsBtn"
+        android:layout_width="131dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="#f8f8f8"
+        android:fontFamily="@font/blinker"
+        android:text="@string/get_points"
+        android:textColor="#343341"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleRewards" />
+
+    <Button
+        android:id="@+id/currentOffersBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="145dp"
+        android:backgroundTint="#f8f8f8"
+        android:fontFamily="@font/blinker"
+        android:text="@string/current_offers"
+        android:textColor="#343341"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.054"
+        app:layout_constraintStart_toEndOf="@+id/getPointsBtn"
+        app:layout_constraintTop_toBottomOf="@+id/titleRewards" />
+
+    <TextView
+        android:id="@+id/titleRewards"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="28dp"
+        android:fontFamily="@font/blinker"
+        android:text="@string/your_rewards"
+        android:textColor="#343341"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/backBtnRewards"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/welcomeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="184dp"
+        android:fontFamily="@font/blinker"
+        android:text="@string/welcome"
+        android:textColor="#343341"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- PROGRESS BAR FOR POINTS -->
+    <TextView
+        android:id="@+id/userText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="184dp"
+        android:layout_marginEnd="110dp"
+        android:fontFamily="@font/blinker"
+        android:text="@string/user"
+        android:textColor="#343341"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/welcomeText"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:max="1000"
+        android:progress="0"
+        app:layout_constraintBottom_toTopOf="@+id/frame"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <FrameLayout
+        android:id="@+id/frame"
+        android:layout_width="414dp"
+        android:layout_height="250dp"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:layout_marginBottom="96dp"
+        android:progressDrawable="@drawable/custom_progress"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+    </FrameLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
