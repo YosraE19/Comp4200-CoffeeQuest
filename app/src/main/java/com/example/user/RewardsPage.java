@@ -26,7 +26,6 @@ public class RewardsPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rewards_page);
 
-        // Enable edge-to-edge display
         EdgeToEdge.enable(this);
 
         // Initialize views
