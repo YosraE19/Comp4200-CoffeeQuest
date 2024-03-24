@@ -14,7 +14,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
-    //this comme
+    //this comment
     Button btn_login, btn_signup;
     TextView forgot_pwd;
     CheckBox rememberMe;
