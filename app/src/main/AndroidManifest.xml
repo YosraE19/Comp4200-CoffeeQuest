@@ -13,6 +13,39 @@
         android:theme="@style/Theme.User"
         tools:targetApi="31">
         <activity
+            android:name=".GetPoints"
+            android:exported="false" />
+        <activity
+            android:name=".Recent"
+            android:exported="false" />
+        <activity
+            android:name=".OrderDetails"
+            android:exported="false" />
+        <activity
+            android:name=".Favourites"
+            android:exported="false" />
+        <activity
+            android:name=".Recents"
+            android:exported="false" />
+        <activity
+            android:name=".FullMenu"
+            android:exported="false" />
+        <activity
+            android:name=".Cafe_Menu"
+            android:exported="false" />
+        <activity
+            android:name=".RewardsPage"
+            android:exported="false" />
+        <activity
+            android:name=".CurrentOffers"
+            android:exported="false" />
+        <activity
+            android:name=".Order"
+            android:exported="false" />
+        <activity
+            android:name=".Account"
+            android:exported="false" />
+        <activity
             android:name=".SignUpPage"
             android:exported="false" />
         <activity
