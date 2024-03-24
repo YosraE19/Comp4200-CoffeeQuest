@@ -33,10 +33,16 @@ public class RewardsPage extends AppCompatActivity {
         frame = findViewById(R.id.frame);
         progressBar = findViewById(R.id.progressBar);
 
-        String loggedInUser = "John Doe"; // To be configured to set as logged in user
-        userText.setText(loggedInUser);
+        //Initialize DB
+        MyDBHelper dbHelper = new MyDBHelper(getApplicationContext());
 
-        //TODO create function to intialize progree bar based on Rewards table User ID
+        //get userNickname for welcome message
+        String userNickname = dbHelper.getUserNickname(1); // TODO to be modified to select logged in user _id
+        userText.setText(userNickname);
+
+        //initialize progress bar with points for _idUser
+        int points = dbHelper.getPointsValue(1); // TODO to be modified to select logged in _idUser
+        progressBar.setProgress(points);
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -44,4 +50,7 @@ public class RewardsPage extends AppCompatActivity {
             return insets;
         });
     }
+
+
+
 }
