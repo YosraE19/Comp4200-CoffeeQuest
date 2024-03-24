@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     TextView forgot_pwd;
     CheckBox rememberMe;
     EditText email,pwd;
+    //abdallah
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
