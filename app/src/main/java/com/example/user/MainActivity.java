@@ -18,12 +18,12 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
-    //testing push pull
+    //This is a comment!!
     Button btn_login, btn_signup;
     TextView forgot_pwd;
     CheckBox rememberMe;
     EditText email,pwd;
-    //abdallah
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
