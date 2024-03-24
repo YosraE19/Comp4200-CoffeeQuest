@@ -20,6 +20,7 @@ public class RewardsPage extends AppCompatActivity {
     TextView titleRewards, welcomeText, userText;
     FrameLayout frame;
     ProgressBar progressBar;
+    int currentPoints = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,8 +45,8 @@ public class RewardsPage extends AppCompatActivity {
         userText.setText(userNickname);
 
         // Initialize progress bar with points for _idUser
-        int points = dbHelper.getPointsValue(1); // TODO: Modify to select logged-in _idUser
-        progressBar.setProgress(points);
+        currentPoints = dbHelper.getPointsValue(1); // TODO: Modify to select logged-in _idUser
+        progressBar.setProgress(currentPoints);
 
         // Apply window insets listener for edge-to-edge display
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {

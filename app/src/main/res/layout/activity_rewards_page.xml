@@ -103,13 +103,14 @@
         app:layout_constraintStart_toEndOf="@+id/welcomeText"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <ProgressBar
         android:id="@+id/progressBar"
         style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-        android:layout_width="350dp"
-        android:layout_height="50dp"
-        android:layout_gravity="center"
-        android:max="1000"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:progressDrawable="@drawable/custom_progress"
+        android:max="500"
         android:progress="0"
         app:layout_constraintBottom_toTopOf="@+id/frame"
         app:layout_constraintEnd_toEndOf="parent"
@@ -119,7 +120,7 @@
     <FrameLayout
         android:id="@+id/frame"
         android:layout_width="414dp"
-        android:layout_height="250dp"
+        android:layout_height="100dp"
         android:layout_gravity="center_horizontal|center_vertical"
         android:layout_marginBottom="96dp"
         android:progressDrawable="@drawable/custom_progress"

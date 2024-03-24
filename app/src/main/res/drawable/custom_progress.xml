@@ -1,15 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
 
-    <item>
-        <shape>
-            <gradient
-                android:startColor="#001F3F"
-                android:endColor="#0074D9"
-                android:angle="0"
-                />
+    <item android:id = "@+id/background">
+
+        <shape android:shape="ring"
+            android:thickness="30dp"
+            android:useLevel="false">
+            <solid android:color="#D6EAF8"/>
+
 
         </shape>
+    </item>
+
+    <item android:id = "@+id/progress">
+
+        <shape android:shape="ring"
+            android:thickness="30dp"
+            android:useLevel="true">
+
+        <solid android:color="#2874A6"/>
+
+    </shape>
+
     </item>
 
 </layer-list>
