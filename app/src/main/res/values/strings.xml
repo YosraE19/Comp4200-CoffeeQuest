@@ -7,4 +7,8 @@
     <string name="home_button_icon">home button icon</string>
     <string name="back_arrow_image_btn">back arrow image btn</string>
     <string name="user">Username</string>
+    <string name="user_points">points</string>
+    <string name="home_button"/>
+    <string name="points_card_button" />
+    <string name="account_button" />
 </resources>

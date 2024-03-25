@@ -158,7 +158,7 @@ public class MyDBHelper extends SQLiteOpenHelper {
                 int pointsIndex = cursor.getColumnIndex("points");
                 if (pointsIndex != -1) {
                     pointsValue = cursor.getInt(pointsIndex);
-                    Log.e("MyDBHelper", "Points Value: " + pointsValue);
+                    Log.d("MyDBHelper", "Points Value: " + pointsValue);
                 } else {
                     Log.e("MyDBHelper", "Column 'points' not found in cursor.");
                 }
