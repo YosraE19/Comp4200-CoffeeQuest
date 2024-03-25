@@ -1,3 +1,14 @@
 <resources>
-    <string name="app_name">user</string>
+    <string name="app_name">User</string>
+    <string name="welcome">Welcome</string>
+    <string name="your_rewards">Your Rewards</string>
+    <string name="current_offers">Current Offers</string>
+    <string name="get_points">Get Points</string>
+    <string name="home_button_icon">home button icon</string>
+    <string name="back_arrow_image_btn">back arrow image btn</string>
+    <string name="user">Username</string>
+    <string name="user_points">points</string>
+    <string name="home_button"/>
+    <string name="points_card_button" />
+    <string name="account_button" />
 </resources>
