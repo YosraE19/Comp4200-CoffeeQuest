@@ -176,5 +176,69 @@ public class MyDBHelper extends SQLiteOpenHelper {
 
 
 //METHODS FOR TRANSACTION TABLE
+    //Get the transaction id and return the amount
+    public double getAmountFromTransactionID(int transactionID) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        double amount = 0;
+        Cursor cursor = null;
+
+        try {
+            // Query to retrieve transaction total value for the given user ID
+            String query = "SELECT transactionTotal FROM transactionTable WHERE _idTransaction = ?";
+            cursor = db.rawQuery(query, new String[]{String.valueOf(transactionID)});
+
+            // Check if the cursor has data
+            if (cursor != null && cursor.moveToFirst()) {
+                int amountIndex = cursor.getColumnIndex("transactionTotal");
+                if (amountIndex != -1) {
+                    amount = cursor.getDouble(amountIndex);
+                    Log.d("MyDBHelper", "Transaction Amount: " + amount);
+                } else {
+                    Log.e("MyDBHelper", "Column 'transactionTotal' not found in cursor.");
+                }
+            }
+        } catch (Exception e) {
+            Log.e("MyDBHelper", "Error fetching transaction amount: " + e.getMessage());
+        } finally {
+            // Close the cursor
+            if (cursor != null) {
+                cursor.close();
+            }
+        }
+        return amount;
+    }
+    //A method that checks if the amount has been converted to points or not:
+    public boolean isPointsConverted(int transactionID) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        boolean isConverted = false;
+        Cursor cursor = null;
+
+        try {
+            // Query to retrieve points value for the given user ID
+            String query = "SELECT transactionTotal FROM transactionTable WHERE _idTransaction = ?";
+            cursor = db.rawQuery(query, new String[]{String.valueOf(transactionID)});
+
+            // Check if the cursor has data
+            if (cursor != null && cursor.moveToFirst()) {
+                //goes to the column called converted in the transaction table:
+                int convertedIndex = cursor.getColumnIndex("converted");
+                if (convertedIndex != -1) {
+                    //points have been converted:
+                    isConverted = cursor.getInt(convertedIndex) == 1;
+                    Log.d("MyDBHelper", "Points Converted: " + isConverted);
+                } else {
+                    Log.e("MyDBHelper", "Column 'converted' not found in cursor.");
+                }
+            }
+        } catch (Exception e) {
+            Log.e("MyDBHelper", "Error fetching transaction amount: " + e.getMessage());
+        } finally {
+            // Close the cursor
+            if (cursor != null) {
+                cursor.close();
+            }
+        }
+        return isConverted;
+    }
 
 }
