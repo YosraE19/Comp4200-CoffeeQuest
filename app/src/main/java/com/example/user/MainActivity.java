@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     CheckBox rememberMe;
     EditText email,pwd;
     MyDBHelper dbHelper;
+    public static String userEmail;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
                 //Getting Strings for login.
                 String user = email.getText().toString();
                 String pass = pwd.getText().toString();
-
+                userEmail = email.getText().toString();
                 //1. Validate user log in information:
                 if(user.equals("")||pass.equals("")){
                     Toast.makeText(MainActivity.this, "Please fill in required info", Toast.LENGTH_LONG).show();
