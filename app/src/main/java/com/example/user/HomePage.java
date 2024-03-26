@@ -16,6 +16,11 @@ public class HomePage extends AppCompatActivity {
     RecyclerView recyclerView;
     AdapterForHomePage adapter;
     ArrayList<DataSetHomePage> dataSets = new ArrayList<>();
+    ImageView homeButton;
+    ImageView pointsCardButton;
+    ImageView accountButton;
+    ButtonsOnManyActivities buttonsOnManyActivities;
+    MyDBHelper myDBHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,19 +28,31 @@ public class HomePage extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_home_page);
 
+        myDBHelper = new MyDBHelper(this);
+
+        Bundle extras = getIntent().getExtras();
+        int id = -1;
+        if (extras != null){
+            id = extras.getInt("id");
+        }
+
         welcomeText = findViewById(R.id.welcomeText);
+        System.out.println("id: " + id);
 
-        // Need to update this part once the database part is setup
+        homeButton = findViewById(R.id.homeButtonOrder);
+        pointsCardButton = findViewById(R.id.pointsCard);
+        accountButton = findViewById(R.id.userAccountLogo);
 
-        //String userEmail = fetchUserEmail();
-        //String nickname = getUserNickname(userEmail);
+        buttonsOnManyActivities = new ButtonsOnManyActivities(this);
+        buttonsOnManyActivities.HomeButton(this, homeButton);
+        buttonsOnManyActivities.pointsCard(this, pointsCardButton);
+        buttonsOnManyActivities.account(this, accountButton);
 
+        String nickname = myDBHelper.getUserNickname(id);
         String welcomeMessage = "Welcome ";
-        //if (nickname != null) {
-        //    welcomeMessage += nickname;
-        //}
-
-        //
+        if (nickname != null) {
+            welcomeMessage += nickname;
+        }
 
         welcomeText.setText(welcomeMessage);
 
@@ -58,85 +75,5 @@ public class HomePage extends AppCompatActivity {
                 startActivity(toOrder);
             }
         });
-
-        // Account icon at the top that will take the user to ***account page***
-        ImageView accountIcon = findViewById(R.id.userAccountIcon);
-        accountIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(HomePage.this, Account.class);
-                startActivity(intent);
-            }
-        });
-
-        // Back icon that will take the use to the ***previous page***
-        /*
-        ImageView backIcon = findViewById(R.id.backBtn);
-        backIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Go back to previous page
-                onBackPressed();
-            }
-        });
-
-         */
-        // Home button that will take the user to ***home page***
-        ImageView homeButton = findViewById(R.id.homeBtn);
-        homeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(HomePage.this, HomePage.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
-                finish();
-            }
-        });
     }
-
-    // Need to update this part once the database part is setup
-    // Created the framework
-    /*
-    private String fetchUserEmail() {
-        String userEmail = null;
-
-        MyDBHelper dbHelper = new MyDBHelper(this);
-        SQLiteDatabase db = dbHelper.getReadableDatabase();
-
-        // Query the database to fetch the user's email address
-        Cursor cursor = db.rawQuery("SELECT email FROM userTable LIMIT 1", null);
-
-        // Check if the cursor has data
-        if (cursor.moveToFirst()) {
-            // Retrieve the email address from the cursor
-            userEmail = cursor.getString(cursor.getColumnIndex("userEmail"));
-        }
-
-        cursor.close();
-        db.close();
-
-        return userEmail;
-    }
-
-    private String getUserNickname(String userEmail) {
-        MyDBHelper dbHelper = new MyDBHelper(this);
-        SQLiteDatabase db = dbHelper.getReadableDatabase();
-
-        String nickname = null;
-
-        // Query the userTable to retrieve the nickname based on the email address
-        Cursor cursor = db.rawQuery("SELECT nickname FROM userTable WHERE email = ?", new String[]{userEmail});
-
-        // Check if the cursor has data
-        if (cursor.moveToFirst()) {
-            // Retrieve the nickname from the cursor
-            nickname = cursor.getString(cursor.getColumnIndex("userNickname"));
-        }
-
-        cursor.close();
-        db.close();
-
-        return nickname;
-    }
-     */
 }

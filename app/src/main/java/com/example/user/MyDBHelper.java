@@ -240,5 +240,45 @@ public class MyDBHelper extends SQLiteOpenHelper {
         }
         return isConverted;
     }
+    public Boolean checkUserPass(String email, String pass) {
+        SQLiteDatabase MyDB = this.getWritableDatabase();
+        Cursor cursor = null;
+        try {
+            cursor = MyDB.rawQuery("Select * from userTable where userEmail = ? and userPassword = ?", new String[]{email, pass});
+        }catch (Exception e){
+
+        }
+
+        if(cursor.getCount()>0) {
+            return true;
+        }
+        else
+            return false;
+    }
+    public int getID(String email){
+        int id = -1;
+        Cursor cursor = null;
+        try {
+            SQLiteDatabase MyDB = this.getReadableDatabase();
+            cursor = MyDB.rawQuery("Select _id from userTable where userEmail = ?", new String[]{email});
+            if (cursor != null && cursor.moveToFirst()) {
+                int idIndex = cursor.getColumnIndex("_id");
+                id = cursor.getInt(idIndex);
+                if (idIndex != -1) {
+                    id = cursor.getInt(idIndex);
+                    Log.d("MyDBHelper", "ID received: " + id);
+                } else {
+                    Log.e("MyDBHelper", "Column '_id' not found in cursor.");
+                }
+            }
+        }
+        catch(Exception e){
+            Log.e("MyDBHelper", "Error fetching id: " + e.getMessage());
+        } finally {
+            if(cursor!= null)
+                cursor.close();
+        }
+        return id;
+    }
 
 }
