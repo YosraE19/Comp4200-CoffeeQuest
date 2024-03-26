@@ -115,6 +115,6 @@ public class GetPoints extends Fragment {
         return view;
         //return super.onCreateView(inflater, container, savedInstanceState);
     }
-
+    //get the user id :
 
 }
