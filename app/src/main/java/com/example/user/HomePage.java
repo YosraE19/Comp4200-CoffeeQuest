@@ -81,7 +81,6 @@ public class HomePage extends AppCompatActivity {
         });
 
          */
-
         // Home button that will take the user to ***home page***
         ImageView homeButton = findViewById(R.id.homeBtn);
         homeButton.setOnClickListener(new View.OnClickListener() {

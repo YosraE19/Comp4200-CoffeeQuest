@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     TextView forgot_pwd;
     CheckBox rememberMe;
     EditText email,pwd;
-
+    MyDBHelper dbHelper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,11 +37,6 @@ public class MainActivity extends AppCompatActivity {
         pwd = findViewById(R.id.pwd);
         rememberMe = findViewById(R.id.rememberMe);
         forgot_pwd = findViewById(R.id.forgotPwd);
-
-
-        //Initialize DB
-        MyDBHelper dbHelper = new MyDBHelper(getApplicationContext());
-
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
