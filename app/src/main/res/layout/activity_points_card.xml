@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="@font/blinker"
-            android:text="1234"
+            android:text=" "
             android:textAlignment="center"
             android:textColor="#343341"
             android:textSize="100sp" />

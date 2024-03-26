@@ -1,6 +1,7 @@
 package com.example.user;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -17,10 +18,12 @@ import androidx.core.view.WindowInsetsCompat;
 public class points_card_activity extends AppCompatActivity {
     ImageView back_btn, home_btn, card_btn,account_btn;
 
-    TextView titleCard;
+    TextView titleCard,userID;
     ActionBar actionBar;
     Toolbar bottomActionBar;
     ButtonsOnManyActivities buttonsOnManyActivities;
+
+    MyDBHelper myDBHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +38,9 @@ public class points_card_activity extends AppCompatActivity {
         card_btn = findViewById(R.id.pointsCard);
         account_btn = findViewById(R.id.userAccountLogo);
         titleCard = findViewById(R.id.pointsCardTitle);
+        userID = findViewById(R.id.userID);
 
+        myDBHelper = new MyDBHelper(this);
 
         //set up the action bar
         bottomActionBar = (Toolbar) findViewById(R.id.bottomActionBar);
@@ -59,6 +64,14 @@ public class points_card_activity extends AppCompatActivity {
         //call the account button listener from the ButtonsOnManyActivities
         buttonsOnManyActivities.account(this,account_btn);
 
+
+        //get user email from main (log in)
+        String userEmail = MainActivity.userEmail;
+        //get the user id from database:
+        Log.d("Points Card", "user email: " + userEmail);
+        Log.d("Points card", "user id: " + myDBHelper.getID(userEmail));
+        String id = String.valueOf(myDBHelper.getID(userEmail));
+        userID.setText(id);
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());

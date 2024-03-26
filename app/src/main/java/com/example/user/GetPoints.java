@@ -54,7 +54,7 @@ public class GetPoints extends Fragment {
         convert_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO need to validate the user id and get the amount from the database:
+                //TODO get the user id
                 //Get the user's transaction id:
                 String getTransactionID = et_input_transactionID.getText().toString();
 
@@ -115,6 +115,6 @@ public class GetPoints extends Fragment {
         return view;
         //return super.onCreateView(inflater, container, savedInstanceState);
     }
-
+    //get the user id :
 
 }

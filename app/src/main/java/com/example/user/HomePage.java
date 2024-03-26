@@ -67,13 +67,5 @@ public class HomePage extends AppCompatActivity {
 
         adapter = new AdapterForHomePage(dataSets, this);
         recyclerView.setAdapter(adapter);
-
-        welcomeText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent toOrder = new Intent(HomePage.this, Order.class);
-                startActivity(toOrder);
-            }
-        });
     }
 }
