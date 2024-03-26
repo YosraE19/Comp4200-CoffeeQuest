@@ -45,10 +45,9 @@ public class AdapterForHomePage extends RecyclerView.Adapter<AdapterForHomePage.
                     context.startActivity(intent);
                 }
 
-                // Page is not created yet
                 if(position == 1) {
-                    //Intent intent = new Intent(context, OffersPage.class);
-                    //context.startActivity(intent);
+                    Intent intent = new Intent(context, CurrentOffers.class);
+                    context.startActivity(intent);
                 }
 
                 if(position == 2) {
@@ -66,10 +65,9 @@ public class AdapterForHomePage extends RecyclerView.Adapter<AdapterForHomePage.
                     context.startActivity(intent);
                 }
 
-                // Page is not created yet
                 if(position == 1) {
-                    //Intent intent = new Intent(context, OffersPage.class);
-                    //context.startActivity(intent);
+                    Intent intent = new Intent(context, CurrentOffers.class);
+                    context.startActivity(intent);
                 }
 
                 if(position == 2) {
