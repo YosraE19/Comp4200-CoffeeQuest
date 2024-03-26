@@ -23,8 +23,13 @@ public class HomePage extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_home_page);
 
+        Bundle extras = getIntent().getExtras();
+        int id = -1;
+        if (extras != null){
+            id = extras.getInt("id");
+        }
         welcomeText = findViewById(R.id.welcomeText);
-
+        System.out.println("id: " + id);
         // Need to update this part once the database part is setup
 
         //String userEmail = fetchUserEmail();

@@ -37,20 +37,58 @@ public class MainActivity extends AppCompatActivity {
         pwd = findViewById(R.id.pwd);
         rememberMe = findViewById(R.id.rememberMe);
         forgot_pwd = findViewById(R.id.forgotPwd);
+
+        //Initialize DB and insert default user/reward records
+        MyDBHelper dbHelper = new MyDBHelper(getApplicationContext());
+        // Insert initial user data -- ONLY INCLUDE ON FIRST LAUNCH OF APP
+
+        dbHelper.addUser("minern@uwindsor.ca", "minern", "Password!123");
+        dbHelper.addUser("azzam2@uwindsor.ca", "azzam2", "Password!123");
+        dbHelper.addUser("ismai11a@uwindsor.ca", "ismai11a", "Password!123");
+        dbHelper.addUser("elbaser@uwindsor.ca", "elbaser", "Password!123");
+        dbHelper.addUser("banga2@uwindsor.ca", "sbanga", "Password!123");
+
+        // Add default rewards for each user
+        dbHelper.addReward(0, 1);
+        dbHelper.addReward(0, 2);
+        dbHelper.addReward(0, 3);
+        dbHelper.addReward(0, 4);
+        dbHelper.addReward(0, 5);
+
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 //When log in button is pressed:
+                //Getting Strings for login.
+                String user = email.getText().toString();
+                String pass = pwd.getText().toString();
+
                 //1. Validate user log in information:
+                if(user.equals("")||pass.equals("")){
+                    Toast.makeText(MainActivity.this, "Please fill in required info", Toast.LENGTH_LONG).show();
+                }
+                else {
+                    try{
+                    //1.1 If user log in information is correct then take the user to the home page:
+                    Boolean checkUser = dbHelper.checkUserPass(user,pass);
+                    if(checkUser == true){
+                        int id = dbHelper.getID(user);
+                        Intent toHome = new Intent(MainActivity.this, HomePage.class);
+                        toHome.putExtra("id", id);
+                        startActivity(toHome);
+                    }
+                    //1.2 Otherwise send a toast message:
+                    else {
+                        String invalidID = "Enter a valid email and password";
+                        Toast.makeText(MainActivity.this, invalidID, Toast.LENGTH_LONG).show();
+                    }
 
-                //1.1 If user log in information is correct then take the user to the home page:
-                Intent toHome = new Intent(MainActivity.this, HomePage.class);
-                startActivity(toHome);
-
-                //1.2 Otherwise send a toast message:
-                String invalidID = "Enter a valid email and password";
-                Toast.makeText(MainActivity.this, invalidID, Toast.LENGTH_LONG).show();
+                    }
+                    catch(Exception e){
+                        Toast.makeText(MainActivity.this, e.toString() ,Toast.LENGTH_LONG);
+                    }
+                }
             }
         });
 
