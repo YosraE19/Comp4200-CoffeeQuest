@@ -24,6 +24,8 @@ public class RewardsPage extends AppCompatActivity {
     ProgressBar progressBar;
     int currentPoints = 0;
 
+    int id;
+
     ButtonsOnManyActivities buttonsOnManyActivities;
 
     @Override
@@ -54,22 +56,22 @@ public class RewardsPage extends AppCompatActivity {
         // Initialize Action Bar
         buttonsOnManyActivities = new ButtonsOnManyActivities(this);
         buttonsOnManyActivities.HomeButton(this,home_btn); //home button
-       // buttonsOnManyActivities.account(this,account_btn); //account button
-       // buttonsOnManyActivities.pointsCard(this,card_btn); //card button
+        buttonsOnManyActivities.account(this,account_btn); //account button
+        buttonsOnManyActivities.pointsCard(this,card_btn); //card button
 
 
         Bundle extras = getIntent().getExtras();
-        int id = -1;
+        id = -1;
         if (extras != null){
             id = extras.getInt("id");
         }
 
         // Get userNickname for welcome message
-        String userNickname = dbHelper.getUserNickname(id); // TODO: Modify to select logged-in user _id
+        String userNickname = dbHelper.getUserNickname(id);
         userText.setText(userNickname);
 
         // Initialize progress bar with points for _idUser
-        currentPoints = dbHelper.getPointsValue(id); // TODO: Modify to select logged-in _idUser
+        currentPoints = dbHelper.getPointsValue(id);
         progressBar.setProgress(currentPoints);
         String pointsString = getString(R.string.user_points);
         String formattedText = currentPoints + " " + pointsString;
@@ -93,6 +95,7 @@ public class RewardsPage extends AppCompatActivity {
             public void onClick(View v) {
                 // Open HomePage
                 Intent intent = new Intent(RewardsPage.this, CurrentOffers.class);
+                intent.putExtra("id", id); // Pass the user ID to CurrentOffers
                 startActivity(intent);
                 finish();
             }
