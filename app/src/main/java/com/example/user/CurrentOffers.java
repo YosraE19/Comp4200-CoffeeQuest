@@ -3,11 +3,9 @@ package com.example.user;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import java.util.ArrayList;
 
 public class CurrentOffers extends AppCompatActivity {
@@ -31,12 +29,12 @@ public class CurrentOffers extends AppCompatActivity {
         MyDBHelper dbHelper = new MyDBHelper(getApplicationContext());
 
         // TODO uncomment once nav bar functionality is complete
-        /*Navigation bar
+        //Navigation bar
         buttonsOnManyActivities = new ButtonsOnManyActivities(this);
         buttonsOnManyActivities.HomeButton(this,home_btn); //home button
-        buttonsOnManyActivities.account(this,account_btn); //account button
-        buttonsOnManyActivities.pointsCard(this,card_btn); //card button
-        */
+        //buttonsOnManyActivities.account(this,account_btn); //account button
+        //buttonsOnManyActivities.pointsCard(this,card_btn); //card button
+
 
         //Recycle View Offers
         recyclerView = findViewById(R.id.recyler_view);

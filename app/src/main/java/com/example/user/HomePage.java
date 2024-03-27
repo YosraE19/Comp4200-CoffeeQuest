@@ -65,7 +65,7 @@ public class HomePage extends AppCompatActivity {
         dataSets.add(new DataSetHomePage("Offers and Discounts", R.drawable.offers_and_discounts));
         dataSets.add(new DataSetHomePage("Order", R.drawable.order));
 
-        adapter = new AdapterForHomePage(dataSets, this);
+        adapter = new AdapterForHomePage(dataSets, this, id);
         recyclerView.setAdapter(adapter);
     }
 }

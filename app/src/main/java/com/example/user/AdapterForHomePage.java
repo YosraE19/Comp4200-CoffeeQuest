@@ -18,10 +18,12 @@ public class AdapterForHomePage extends RecyclerView.Adapter<AdapterForHomePage.
 
     ArrayList<DataSetHomePage> dataList;
     Context context;
+    private int id; // id for passing user ID
 
-    public AdapterForHomePage(ArrayList<DataSetHomePage> data, Context context) {
+    public AdapterForHomePage(ArrayList<DataSetHomePage> data, Context context, int id) {
         this.dataList = data;
         this.context = context;
+        this.id = id;
     }
 
     @NonNull
@@ -42,11 +44,13 @@ public class AdapterForHomePage extends RecyclerView.Adapter<AdapterForHomePage.
             public void onClick(View view) {
                 if(position == 0) {
                     Intent intent = new Intent(context, RewardsPage.class);
+                    intent.putExtra("id", id); // Pass the user ID to RewardsPage
                     context.startActivity(intent);
                 }
 
                 if(position == 1) {
                     Intent intent = new Intent(context, CurrentOffers.class);
+                    intent.putExtra("id", id); // Pass the user ID to CurrentOffers
                     context.startActivity(intent);
                 }
 
@@ -62,11 +66,13 @@ public class AdapterForHomePage extends RecyclerView.Adapter<AdapterForHomePage.
             public void onClick(View view) {
                 if(position == 0) {
                     Intent intent = new Intent(context, RewardsPage.class);
+                    intent.putExtra("id", id); // Pass the ID to RewardsPage
                     context.startActivity(intent);
                 }
 
                 if(position == 1) {
                     Intent intent = new Intent(context, CurrentOffers.class);
+                    intent.putExtra("id", id); // Pass the user ID to CurrentOffers
                     context.startActivity(intent);
                 }
 
