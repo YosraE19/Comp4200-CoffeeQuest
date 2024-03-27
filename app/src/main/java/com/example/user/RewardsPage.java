@@ -2,6 +2,7 @@ package com.example.user;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
@@ -23,7 +24,7 @@ public class RewardsPage extends AppCompatActivity {
     FrameLayout frame;
     ProgressBar progressBar;
     int currentPoints = 0;
-    int id;
+    int id = 0;
     ButtonsOnManyActivities buttonsOnManyActivities;
 
     @Override
@@ -59,6 +60,7 @@ public class RewardsPage extends AppCompatActivity {
         if (extras != null){
             id = extras.getInt("id");
         }
+        Log.d("RewardPage", "Received user ID: " + id);
 
         // Get userNickname for welcome message
         String userNickname = dbHelper.getUserNickname(id);

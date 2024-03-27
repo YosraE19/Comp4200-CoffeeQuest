@@ -2,6 +2,7 @@ package com.example.user;
 
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
@@ -41,12 +42,14 @@ public class CurrentOffers extends AppCompatActivity {
         if (extras != null){
             id = extras.getInt("id");
         }
+        Log.d("CurrentOffers", "Received user ID: " + id);
 
         //User Points message
         currentPoints = dbHelper.getPointsValue(id);
         String pointsString = getString(R.string.user_points);
         String formattedText = currentPoints + " " + pointsString;
-        userPoints.setText("You have " + formattedText);
+        String youHave = "You have";
+        userPoints.setText(youHave + " " + formattedText);
 
 
         //Navigation bar

@@ -2,6 +2,7 @@ package com.example.user;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -30,6 +31,7 @@ public class Order extends AppCompatActivity {
     ActionBar actionBar;
     Toolbar bottomActionBar;
     ButtonsOnManyActivities buttonsOnManyActivities;
+    int id = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +51,13 @@ public class Order extends AppCompatActivity {
         current_offers_btn = findViewById(R.id.currentOffersBtn);
         frame = findViewById(R.id.frame);
 
-
+        // Receive user id
+        Bundle extras = getIntent().getExtras();
+        id = -1;
+        if (extras != null) {
+            id = extras.getInt("id");
+        }
+        Log.d("Order", "Received user ID: " + id);
         //set up the action bar
         bottomActionBar = (Toolbar) findViewById(R.id.bottomActionBar);
         setSupportActionBar(bottomActionBar);
@@ -73,6 +81,7 @@ public class Order extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent toRewards = new Intent(Order.this, RewardsPage.class);
+                toRewards.putExtra("id", id); // Pass the user ID to RewardsPage
                 startActivity(toRewards);
             }
         });
@@ -81,6 +90,7 @@ public class Order extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent toCurrentOffers = new Intent(Order.this, CurrentOffers.class);
+                toCurrentOffers.putExtra("id", id); // Pass the user ID to CurrentOffers
                 startActivity(toCurrentOffers);
             }
         });
