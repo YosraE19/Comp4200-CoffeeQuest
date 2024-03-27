@@ -91,12 +91,11 @@ Sign up Page:
         android:ems="10"
         android:hint="Enter Nickname"
         android:inputType="text"
-        android:textColor="#f8f8f8"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textEnterCode" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/sendCode"
+        android:id="@+id/createAccount"
         android:layout_width="320dp"
         android:layout_height="48dp"
         android:layout_marginStart="40dp"
