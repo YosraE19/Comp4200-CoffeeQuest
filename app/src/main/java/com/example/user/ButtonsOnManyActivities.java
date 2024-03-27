@@ -10,9 +10,8 @@ import android.widget.ImageView;
  * This class will contain buttons that are used in multiple activities such as:
  *   - Home Button
  *   - Back Button
- *   - Points Card (Need to be implemented)
+ *   - Points Card
  * */
-//TODO create points card icon at the bottom of the activity that contains the home button
 public class ButtonsOnManyActivities {
     private Activity activity;
     private ImageView homeButton;
@@ -21,7 +20,7 @@ public class ButtonsOnManyActivities {
 
     private  ImageView accountButton;
 
-    //TODO: Create a global variable for the user id (get the id from the database)
+    //TODO: Fix Nav Bar:
 
     public ButtonsOnManyActivities(Activity activity) {
         this.activity = activity;
@@ -38,6 +37,10 @@ public class ButtonsOnManyActivities {
             public void onClick(View v) {
                 //Create an intent that will take the user back to the home page:
                 Intent toHome = new Intent(activity, HomePage.class);
+                //When the home page button is pressed it will go back to the first home page that
+                //created earlier instead of creating a new each time and trying to find the user name for each time it
+                //opens a new home page
+                toHome.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 activity.startActivity(toHome);
             }
         });
@@ -57,8 +60,6 @@ public class ButtonsOnManyActivities {
             }
         });
     }
-
-
 
     //Create a constructor for the points card:
     public void pointsCard(Activity activity, ImageView pointCardButton) {

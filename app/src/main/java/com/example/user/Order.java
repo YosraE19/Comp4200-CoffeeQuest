@@ -90,7 +90,6 @@ public class Order extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
         //When the home button is pressed it will take the user to the home page:
         //call the home button listener function from the ButtonsOnManyActivities
         buttonsOnManyActivities.HomeButton(this,home_btn);
