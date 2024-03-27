@@ -106,7 +106,7 @@
         android:layout_marginTop="235dp"
         android:layout_marginEnd="27dp"
         android:layout_marginBottom="196dp"
-        android:max="500"
+        android:max="1000"
         android:progress="0"
         android:progressDrawable="@drawable/custom_progress"
         app:layout_constraintBottom_toBottomOf="parent"

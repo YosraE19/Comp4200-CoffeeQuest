@@ -59,6 +59,11 @@ public class AdapterForHomePage extends RecyclerView.Adapter<AdapterForHomePage.
                     intent.putExtra("id", id); // Pass the user ID to Order
                     context.startActivity(intent);
                 }
+
+                if(position == 3) {
+                    Intent intent = new Intent(context, CafeInfoPage.class);
+                    context.startActivity(intent);
+                }
             }
         });
 
@@ -80,6 +85,11 @@ public class AdapterForHomePage extends RecyclerView.Adapter<AdapterForHomePage.
                 if(position == 2) {
                     Intent intent = new Intent(context, Order.class);
                     intent.putExtra("id", id); // Pass the user ID to Order
+                    context.startActivity(intent);
+                }
+
+                if(position == 3) {
+                    Intent intent = new Intent(context, CafeInfoPage.class);
                     context.startActivity(intent);
                 }
             }
