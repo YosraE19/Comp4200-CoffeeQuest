@@ -1,6 +1,8 @@
 package com.example.user;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,9 +20,14 @@ public class MyAdapterCurrentOffers extends RecyclerView.Adapter<MyAdapterCurren
 
     ArrayList<MyDataSetCurrentOffers> dataList;
     Context context;
-    public MyAdapterCurrentOffers(ArrayList<MyDataSetCurrentOffers> data, Context context) {
+
+    private int id;
+    int offerPoints, currentPoints, comparePoints; //variables to check if user has enough points
+    public MyAdapterCurrentOffers(ArrayList<MyDataSetCurrentOffers> data, Context context, int id) {
         this.dataList = data;
         this.context = context;
+        this.offerPoints = offerPoints;
+        this.id = id;
     }
 
     @NonNull
@@ -38,8 +45,29 @@ public class MyAdapterCurrentOffers extends RecyclerView.Adapter<MyAdapterCurren
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String msg = "You clicked Card "+(position+1);
-                Toast.makeText(context.getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setTitle("Redeem Offer");
+                builder.setMessage("Do you want to redeem offer " + (position + 1) + "?");
+
+                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                        String msg = "Offer " + (position + 1) + " redeemed!";
+                        Toast.makeText(context.getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
+                        // Place your redemption logic here
+                    }
+                });
+
+                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        // Do nothing or handle the cancel action
+                    }
+                });
+
+                AlertDialog dialog = builder.create();
+                dialog.show();
             }
         });
 

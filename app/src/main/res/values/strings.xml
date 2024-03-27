@@ -11,6 +11,6 @@
     <string name="home_button" />
     <string name="points_card_button" />
     <string name="account_button" />
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="select_offer">SELECT OFFER TO REDEEM POINTS!</string>
 </resources>
