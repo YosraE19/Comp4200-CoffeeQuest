@@ -24,8 +24,7 @@ public class RewardsPage extends AppCompatActivity {
     ProgressBar progressBar;
     int currentPoints = 0;
 
-    //TODO uncomment once nav bar functionality is complete
-    //ButtonsOnManyActivities buttonsOnManyActivities;
+    ButtonsOnManyActivities buttonsOnManyActivities;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,19 +51,25 @@ public class RewardsPage extends AppCompatActivity {
 
         //TODO uncomment once nav bar functionality is complete
 
-        /* Initialize Action Bar
+        // Initialize Action Bar
         buttonsOnManyActivities = new ButtonsOnManyActivities(this);
         buttonsOnManyActivities.HomeButton(this,home_btn); //home button
-        buttonsOnManyActivities.account(this,account_btn); //account button
-        buttonsOnManyActivities.pointsCard(this,card_btn); //card button
-        */
+       // buttonsOnManyActivities.account(this,account_btn); //account button
+       // buttonsOnManyActivities.pointsCard(this,card_btn); //card button
+
+
+        Bundle extras = getIntent().getExtras();
+        int id = -1;
+        if (extras != null){
+            id = extras.getInt("id");
+        }
 
         // Get userNickname for welcome message
-        String userNickname = dbHelper.getUserNickname(1); // TODO: Modify to select logged-in user _id
+        String userNickname = dbHelper.getUserNickname(id); // TODO: Modify to select logged-in user _id
         userText.setText(userNickname);
 
         // Initialize progress bar with points for _idUser
-        currentPoints = dbHelper.getPointsValue(1); // TODO: Modify to select logged-in _idUser
+        currentPoints = dbHelper.getPointsValue(id); // TODO: Modify to select logged-in _idUser
         progressBar.setProgress(currentPoints);
         String pointsString = getString(R.string.user_points);
         String formattedText = currentPoints + " " + pointsString;
