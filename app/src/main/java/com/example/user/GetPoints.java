@@ -49,12 +49,18 @@ public class GetPoints extends Fragment {
         convert_btn =  view.findViewById(R.id.convertToPoints);
 
         myDBHelper = new MyDBHelper(getContext());
+        PointsConverter.init(myDBHelper);
 
         //When the convert button is pressed an alert message will appear
         convert_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //TODO get the user id
+                //get user email from main (log in)
+                String userEmail = MainActivity.userEmail;
+                //determine the user id:
+                int id = myDBHelper.getID(userEmail);
+
                 //Get the user's transaction id:
                 String getTransactionID = et_input_transactionID.getText().toString();
 
@@ -83,7 +89,7 @@ public class GetPoints extends Fragment {
                     }
                     else {
                         //convert the amount to points by calling the convertDollarToPoints form the Points Converter class:
-                        int points = PointsConverter.convertDollarToPoints(getTransactionAmount);
+                        int points = PointsConverter.convertDollarToPoints(Integer.parseInt(getTransactionID),id,getTransactionAmount);
 
                         AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
                         //set the message in which it shows the user transaction id and amount and it's corresponding points
