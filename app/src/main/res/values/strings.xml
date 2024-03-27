@@ -13,4 +13,5 @@
     <string name="account_button" />
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="select_offer">Please Select Offer to Redeem Points</string>
+    <string name="quest_destinations">Quest Destinations</string>
 </resources>
