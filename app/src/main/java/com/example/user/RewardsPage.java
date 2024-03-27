@@ -18,21 +18,18 @@ import androidx.core.view.WindowInsetsCompat;
 public class RewardsPage extends AppCompatActivity {
 
     ImageView home_btn, card_btn, account_btn;
-    Button offers_btn, points_btn;
+    Button offers_btn;
     TextView titleRewards, welcomeText, userText, userPoints;
     FrameLayout frame;
     ProgressBar progressBar;
     int currentPoints = 0;
-
     int id;
-
     ButtonsOnManyActivities buttonsOnManyActivities;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rewards_page);
-
         EdgeToEdge.enable(this);
 
         //initialize views
@@ -46,12 +43,9 @@ public class RewardsPage extends AppCompatActivity {
         progressBar = findViewById(R.id.progressBar);
         userPoints = findViewById(R.id.userPoints);
         offers_btn = findViewById(R.id.currentOffersBtn);
-        points_btn = findViewById(R.id.getPointsBtn);
 
         // Initialize DB
         MyDBHelper dbHelper = new MyDBHelper(getApplicationContext());
-
-        //TODO uncomment once nav bar functionality is complete
 
         // Initialize Action Bar
         buttonsOnManyActivities = new ButtonsOnManyActivities(this);
@@ -59,7 +53,7 @@ public class RewardsPage extends AppCompatActivity {
         buttonsOnManyActivities.account(this,account_btn); //account button
         buttonsOnManyActivities.pointsCard(this,card_btn); //card button
 
-
+        //Receive user id
         Bundle extras = getIntent().getExtras();
         id = -1;
         if (extras != null){
@@ -77,17 +71,12 @@ public class RewardsPage extends AppCompatActivity {
         String formattedText = currentPoints + " " + pointsString;
         userPoints.setText(formattedText);
 
-
         // Apply window insets listener for edge-to-edge display
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
-
-        // Set onClickListener for the get Points button
-        //TODO link to get points once functionality is completed
 
         // Set onClickListener for Current Offers button
         offers_btn.setOnClickListener(new View.OnClickListener() {
