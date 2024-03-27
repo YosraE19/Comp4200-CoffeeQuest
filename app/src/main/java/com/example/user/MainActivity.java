@@ -56,6 +56,9 @@ public class MainActivity extends AppCompatActivity {
         dbHelper.addReward(0, 4);
         dbHelper.addReward(0, 5);
 
+        dbHelper.addTransaction(2.93);
+        dbHelper.addTransaction(15.65);
+
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

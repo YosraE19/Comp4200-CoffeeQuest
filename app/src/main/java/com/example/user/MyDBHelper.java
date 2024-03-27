@@ -215,7 +215,7 @@ public class MyDBHelper extends SQLiteOpenHelper {
 
         try {
             // Query to retrieve points value for the given user ID
-            String query = "SELECT transactionTotal FROM transactionTable WHERE _idTransaction = ?";
+            String query = "SELECT converted FROM transactionTable WHERE _idTransaction = ?";
             cursor = db.rawQuery(query, new String[]{String.valueOf(transactionID)});
 
             // Check if the cursor has data
@@ -280,5 +280,19 @@ public class MyDBHelper extends SQLiteOpenHelper {
         }
         return id;
     }
+
+    //updates the convert column when the points have been converted
+    public void updateConvertColumn (int transactionID){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        //update the converted column to 1 - indicating that the transaction amount has been converted
+        values.put("converted",1);
+        String selection = "_idTransaction = ?";
+        String [] selectionArgs = {String.valueOf(transactionID)};
+        int rowsAffected = db.update("transactionTable",values,selection, selectionArgs);
+        Log.d ("MyDBHelper", "Rows affected: " + rowsAffected);
+
+    }
+
 
 }
