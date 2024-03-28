@@ -44,7 +44,6 @@ public class Account extends AppCompatActivity {
             return insets;
         });
 
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         buttonsOnManyActivities = new ButtonsOnManyActivities(this);
 
         homeBtn = findViewById(R.id.homeButtonOrder);
