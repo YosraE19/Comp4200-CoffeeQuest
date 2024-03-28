@@ -90,6 +90,7 @@ public class AdapterForHomePage extends RecyclerView.Adapter<AdapterForHomePage.
 
                 if(position == 3) {
                     Intent intent = new Intent(context, CafeInfoPage.class);
+                    intent.putExtra("id", id); // Pass the user ID to QuestDestinations
                     context.startActivity(intent);
                 }
             }

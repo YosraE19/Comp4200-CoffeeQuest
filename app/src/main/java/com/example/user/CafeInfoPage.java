@@ -1,6 +1,7 @@
 package com.example.user;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +17,8 @@ public class CafeInfoPage extends AppCompatActivity {
     ArrayList<MyDataSetCafeInfo> dataSets = new ArrayList<>();
     ButtonsOnManyActivities buttonsOnManyActivities;
 
+    int id = -1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,11 +28,21 @@ public class CafeInfoPage extends AppCompatActivity {
         card_btn = findViewById(R.id.pointsCard);
         account_btn = findViewById(R.id.userAccountLogo);
         titleCafe = findViewById(R.id.titleCafe);
+        // Initialize DB
+        MyDBHelper dbHelper = new MyDBHelper(getApplicationContext());
+
+        // Get User id
+        Bundle extras = getIntent().getExtras();
+        id = -1;
+        if (extras != null){
+            id = extras.getInt("id");
+        }
+        Log.d("CafeInfoPage", "Received user ID: " + id);
 
         //Navigation bar
         buttonsOnManyActivities = new ButtonsOnManyActivities(this);
         buttonsOnManyActivities.HomeButton(this,home_btn); //home button
-        buttonsOnManyActivities.account(this,account_btn); //account button
+        buttonsOnManyActivities.account(this,account_btn, id); //account button
         buttonsOnManyActivities.pointsCard(this,card_btn); //card button
 
         //Recycle View Offers

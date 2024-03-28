@@ -151,6 +151,24 @@ public class MyDBHelper extends SQLiteOpenHelper {
         return emailExists;
     }
 
+    public void updateNickname(int userId, String name){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("userNickname", name);
+        String selection = "_id = ?";
+        String[] selectionArgs = {String.valueOf(userId)};
+        int rowsAffected = db.update("userTable", values, selection, selectionArgs);
+        Log.d("MyDBHelper", "Rows affected: " + rowsAffected);
+    }public void updateEmail(int userId, String email){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("userEmail", email);
+        String selection = "_id = ?";
+        String[] selectionArgs = {String.valueOf(userId)};
+        int rowsAffected = db.update("userTable", values, selection, selectionArgs);
+        Log.d("MyDBHelper", "Rows affected: " + rowsAffected);
+    }
+
 
     //METHODS FOR REWARDS TABLE
     //method for updating user points in Rewards table

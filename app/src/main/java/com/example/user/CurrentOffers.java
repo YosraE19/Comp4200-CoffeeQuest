@@ -55,7 +55,7 @@ public class CurrentOffers extends AppCompatActivity {
         //Navigation bar
         buttonsOnManyActivities = new ButtonsOnManyActivities(this);
         buttonsOnManyActivities.HomeButton(this,home_btn); //home button
-        buttonsOnManyActivities.account(this,account_btn); //account button
+        buttonsOnManyActivities.account(this,account_btn, id); //account button
         buttonsOnManyActivities.pointsCard(this,card_btn); //card button
 
         //Recycle View Offers

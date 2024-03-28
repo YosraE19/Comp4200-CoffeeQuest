@@ -110,7 +110,7 @@ public class Order extends AppCompatActivity {
 
         //When the user account button is pressed it will take the user to the account page
         //call the account button listener from the ButtonsOnManyActivities
-        buttonsOnManyActivities.account(this,account_btn);
+        buttonsOnManyActivities.account(this,account_btn, id);
 
         //return 0;
     }

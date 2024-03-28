@@ -77,7 +77,7 @@ public class ButtonsOnManyActivities {
     }
 
     //Create a constructor for the account:
-    public void account (Activity activity, ImageView accountButton) {
+    public void account (Activity activity, ImageView accountButton, int id) {
         this.accountButton = accountButton;
 
 
@@ -87,6 +87,7 @@ public class ButtonsOnManyActivities {
             public void onClick(View v) {
                 //Create an intent that will take the user back to the home page:
                 Intent toAccountInfo = new Intent(activity, Account.class);
+                toAccountInfo.putExtra("id", id);
                 activity.startActivity(toAccountInfo);
             }
         });

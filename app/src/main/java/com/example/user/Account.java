@@ -2,10 +2,13 @@ package com.example.user;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,11 +29,14 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 
 public class Account extends AppCompatActivity {
-
+    int id;
     ImageView homeBtn, pointsBtn, accountBtn;
     Button logOutBtn, saveBtn;
     FrameLayout frame;
     ButtonsOnManyActivities buttonsOnManyActivities;
+
+    EditText newEmail, newNickname;
+
     //here i want to somehow click change pfp and have it open files and ask me to upload a new one
 
     @Override
@@ -43,15 +49,42 @@ public class Account extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
+        MyDBHelper dbHelper = new MyDBHelper(getApplicationContext());
         buttonsOnManyActivities = new ButtonsOnManyActivities(this);
-
+        newEmail = findViewById(R.id.getEmail);
+        newNickname = findViewById(R.id.getNickname);
         homeBtn = findViewById(R.id.homeButtonOrder);
         pointsBtn = findViewById(R.id.pointsCard);
         accountBtn = findViewById(R.id.userAccountLogo);
         logOutBtn = findViewById(R.id.logOutBtn);
         saveBtn = findViewById(R.id.saveBtn);
         frame = findViewById(R.id.frame);
+
+
+        // Get User id
+        Bundle extras = getIntent().getExtras();
+        id = -2;
+        if (extras != null){
+            id = extras.getInt("id");
+        }
+        Log.d("Account", "Received user ID: " + id);
+
+        saveBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                    if(newNickname.getText().toString().equals("") && newEmail.getText().toString().equals("")){
+                        Toast.makeText(Account.this, "Please fill one or both fields", Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+                        if (newNickname.getText().toString().equals("")) {
+                        } else
+                            dbHelper.updateNickname(id, newNickname.getText().toString());
+                        if (newEmail.getText().toString().equals("")) {
+                        } else
+                            dbHelper.updateEmail(id, newEmail.getText().toString());
+                    }
+            }
+        });
 
         buttonsOnManyActivities = new ButtonsOnManyActivities(this);
         buttonsOnManyActivities.HomeButton(this, homeBtn);

@@ -19,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
     TextView forgot_pwd;
     CheckBox rememberMe;
     EditText email,pwd;
-    MyDBHelper dbHelper;
     public static String userEmail;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
                     Boolean checkUser = dbHelper.checkUserPass(user,pass);
                     if(checkUser == true){
                         int id = dbHelper.getID(user);
+
                         Intent toHome = new Intent(MainActivity.this, HomePage.class);
                         toHome.putExtra("id", id);
                         startActivity(toHome);

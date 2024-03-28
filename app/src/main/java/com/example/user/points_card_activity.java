@@ -42,6 +42,15 @@ public class points_card_activity extends AppCompatActivity {
 
         myDBHelper = new MyDBHelper(this);
 
+
+
+        //get user email from main (log in)
+        String userEmail = MainActivity.userEmail;
+        //get the user id from database:
+        Log.d("Points Card", "user email: " + userEmail);
+        Log.d("Points card", "user id: " + myDBHelper.getID(userEmail));
+        String id = String.valueOf(myDBHelper.getID(userEmail));
+        userID.setText(id);
         //set up the action bar
         bottomActionBar = (Toolbar) findViewById(R.id.bottomActionBar);
         setSupportActionBar(bottomActionBar);
@@ -62,16 +71,7 @@ public class points_card_activity extends AppCompatActivity {
 
         //When the user account button is pressed it will take the user to the account page
         //call the account button listener from the ButtonsOnManyActivities
-        buttonsOnManyActivities.account(this,account_btn);
-
-
-        //get user email from main (log in)
-        String userEmail = MainActivity.userEmail;
-        //get the user id from database:
-        Log.d("Points Card", "user email: " + userEmail);
-        Log.d("Points card", "user id: " + myDBHelper.getID(userEmail));
-        String id = String.valueOf(myDBHelper.getID(userEmail));
-        userID.setText(id);
+        buttonsOnManyActivities.account(this,account_btn, Integer.parseInt(id));
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());

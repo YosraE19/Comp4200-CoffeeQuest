@@ -48,11 +48,6 @@ public class RewardsPage extends AppCompatActivity {
         // Initialize DB
         MyDBHelper dbHelper = new MyDBHelper(getApplicationContext());
 
-        // Initialize Action Bar
-        buttonsOnManyActivities = new ButtonsOnManyActivities(this);
-        buttonsOnManyActivities.HomeButton(this,home_btn); //home button
-        buttonsOnManyActivities.account(this,account_btn); //account button
-        buttonsOnManyActivities.pointsCard(this,card_btn); //card button
 
         //Receive user id
         Bundle extras = getIntent().getExtras();
@@ -62,6 +57,11 @@ public class RewardsPage extends AppCompatActivity {
         }
         Log.d("RewardPage", "Received user ID: " + id);
 
+        // Initialize Action Bar
+        buttonsOnManyActivities = new ButtonsOnManyActivities(this);
+        buttonsOnManyActivities.HomeButton(this,home_btn); //home button
+        buttonsOnManyActivities.account(this,account_btn,id); //account button
+        buttonsOnManyActivities.pointsCard(this,card_btn); //card button
         // Get userNickname for welcome message
         String userNickname = dbHelper.getUserNickname(id);
         userText.setText(userNickname);

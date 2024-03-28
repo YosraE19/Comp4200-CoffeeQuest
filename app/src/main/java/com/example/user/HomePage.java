@@ -45,7 +45,7 @@ public class HomePage extends AppCompatActivity {
         buttonsOnManyActivities = new ButtonsOnManyActivities(this);
         buttonsOnManyActivities.HomeButton(this, homeButton);
         buttonsOnManyActivities.pointsCard(this, pointsCardButton);
-        buttonsOnManyActivities.account(this, accountButton);
+        buttonsOnManyActivities.account(this, accountButton,id);
 
         String nickname = myDBHelper.getUserNickname(id);
         String welcomeMessage = "Welcome ";
