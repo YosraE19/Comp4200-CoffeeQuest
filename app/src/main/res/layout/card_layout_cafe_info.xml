@@ -7,12 +7,14 @@
     android:layout_margin="8dp"
     app:cardCornerRadius="8dp"
     app:cardElevation="2dp"
+    android:backgroundTint="@color/white"
     app:cardUseCompatPadding="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:gravity="center">
 
         <ImageView
             android:id="@+id/image_view"
@@ -28,6 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:fontFamily="@font/blinker"
+            android:background="@color/white"
             android:textColor="#343341"
             android:textSize="14sp"
             android:textStyle="bold" />
