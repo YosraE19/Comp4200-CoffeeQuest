@@ -15,7 +15,7 @@ import androidx.annotation.Nullable;
 public class MyDBHelper extends SQLiteOpenHelper {
 
     public MyDBHelper(@Nullable Context context) {
-        super(context, "COMP4200DB", null, 2);
+        super(context, "COMP4200DB", null, 1);
     }
 
     @Override
@@ -56,6 +56,18 @@ public class MyDBHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade (SQLiteDatabase db,int oldVersion, int newVersion){
         //Drop the existing tables if they exist
+        db.execSQL("DROP TABLE IF EXISTS userTable");
+        db.execSQL("DROP TABLE IF EXISTS transactionTable");
+        db.execSQL("DROP TABLE IF EXISTS rewardsTable");
+        db.execSQL("DROP TABLE IF EXISTS couponTable");
+
+        // Recreate the tables by calling onCreate
+        onCreate(db);
+    }
+
+    @Override
+    public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        // Drop the existing tables if they exist
         db.execSQL("DROP TABLE IF EXISTS userTable");
         db.execSQL("DROP TABLE IF EXISTS transactionTable");
         db.execSQL("DROP TABLE IF EXISTS rewardsTable");
