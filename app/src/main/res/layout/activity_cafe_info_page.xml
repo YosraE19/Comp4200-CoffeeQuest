@@ -7,7 +7,8 @@
     android:background="#f8f8f8"
     tools:context=".CurrentOffers">
 
-      <TextView
+
+    <TextView
         android:id="@+id/titleCafe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -16,25 +17,26 @@
         android:layout_marginBottom="667dp"
         android:fontFamily="@font/blinker"
         android:text="@string/quest_destinations"
+        android:textAlignment="center"
         android:textColor="#343341"
         android:textSize="40sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.355"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="379dp"
+        android:layout_height="483dp"
         app:layout_constraintBottom_toTopOf="@id/bottomActionBar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/titleCafe"
+        app:layout_constraintVertical_bias="0.541"
         app:spanCount="2"
         tools:listitem="@layout/card_layout_cafe_info" />
 

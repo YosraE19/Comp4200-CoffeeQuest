@@ -13,7 +13,7 @@
     <string name="account_button" />
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="select_offer">Please Select Offer to Redeem Points</string>
-    <string name="quest_destinations">Quest Destinations</string>
+    <string name="quest_destinations">Quest\nDestinations</string>
     <string name="cafe_Info" />
     <string name="cafe_logo" />
     <string name="email">Email</string>

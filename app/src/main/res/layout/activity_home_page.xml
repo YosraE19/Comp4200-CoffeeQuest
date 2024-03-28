@@ -30,11 +30,11 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="128dp"
         android:fontFamily="@font/blinker"
-        android:paddingEnd="200dp"
         android:paddingStart="0dp"
+        android:paddingEnd="200dp"
         android:text="Welcome\n"
         android:textColor="#343341"
-        android:textSize="50sp"
+        android:textSize="45sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

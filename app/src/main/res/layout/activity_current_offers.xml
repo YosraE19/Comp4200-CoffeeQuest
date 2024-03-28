@@ -7,6 +7,7 @@
     android:background="#f8f8f8"
     tools:context=".CurrentOffers">
 
+
     <TextView
         android:id="@+id/titleOffers"
         android:layout_width="wrap_content"
@@ -21,10 +22,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.431"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/currentOffers"
@@ -38,7 +39,6 @@
         android:text="@string/select_offer"
         android:textColor="#343341"
         android:textSize="22sp"
-        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -50,25 +50,25 @@
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="193dp"
+        android:layout_marginTop="131dp"
         android:layout_marginBottom="260dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.298" />
+        app:layout_constraintTop_toBottomOf="@+id/currentOffers" />
 
     <TextView
         android:id="@+id/userPoints"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="166dp"
-        android:layout_marginTop="548dp"
+        android:layout_marginTop="57dp"
         android:layout_marginEnd="165dp"
         android:layout_marginBottom="147dp"
         android:background="@drawable/button_outline"
         android:fontFamily="@font/blinker"
+        android:padding="10dp"
         android:text="@string/user_points"
         android:textColor="#343341"
         android:textSize="30sp"
@@ -77,7 +77,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/recycler_view" />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/bottomActionBar"
@@ -98,7 +98,7 @@
             android:layout_gravity="center_vertical"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:weightSum="4">
+            android:weightSum="3">
 
             <ImageView
                 android:id="@+id/homeBtnRewards"

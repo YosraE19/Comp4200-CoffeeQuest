@@ -7,7 +7,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RewardsPage">
+    tools:context=".RewardsPage"
+    android:background="#f8f8f8">
 
     <!--implement the scrollview-->
 
@@ -102,9 +103,9 @@
         style="@style/Widget.AppCompat.ProgressBar.Horizontal"
         android:layout_width="300dp"
         android:layout_height="300dp"
-        android:layout_marginStart="56dp"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="235dp"
-        android:layout_marginEnd="27dp"
+        android:layout_marginEnd="40dp"
         android:layout_marginBottom="196dp"
         android:max="1000"
         android:progress="0"
@@ -147,7 +148,7 @@
             android:layout_gravity="center_vertical"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:weightSum="4">
+            android:weightSum="3">
 
             <ImageView
                 android:id="@+id/homeBtnRewards"

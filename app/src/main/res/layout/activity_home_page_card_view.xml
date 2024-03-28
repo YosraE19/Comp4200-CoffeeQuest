@@ -10,6 +10,7 @@
         android:layout_height="wrap_content"
         app:cardCornerRadius="22dp"
         app:cardElevation="2dp"
+        android:backgroundTint="@color/white"
         app:cardUseCompatPadding="true">
 
         <ImageView
