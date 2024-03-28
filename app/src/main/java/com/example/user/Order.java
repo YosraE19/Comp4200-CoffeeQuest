@@ -26,7 +26,7 @@ public class Order extends AppCompatActivity {
 
     ImageView back_btn, home_btn, card_btn,account_btn;
     TextView titleOrder;
-    Button get_points_btn, rewards_btn,current_offers_btn;
+    Button get_points_btn, rewards_btn, current_offers_btn, recentTranaction_btn;
     FrameLayout frame;
     ActionBar actionBar;
     Toolbar bottomActionBar;
@@ -49,6 +49,7 @@ public class Order extends AppCompatActivity {
         get_points_btn = findViewById(R.id.getPointsBtn);
         rewards_btn = findViewById(R.id.rewardsBtn);
         current_offers_btn = findViewById(R.id.currentOffersBtn);
+        recentTranaction_btn = findViewById(R.id.showTransaction);
         frame = findViewById(R.id.frame);
 
         // Receive user id
@@ -85,7 +86,14 @@ public class Order extends AppCompatActivity {
                 startActivity(toRewards);
             }
         });
-
+        recentTranaction_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goHistory = new Intent(Order.this, transaction_history.class);
+                goHistory.putExtra("id", id);
+                startActivity(goHistory);
+            }
+        });
         current_offers_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
