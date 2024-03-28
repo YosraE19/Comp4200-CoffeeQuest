@@ -7,13 +7,15 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+import java.util.Random;
+
 
 import androidx.annotation.Nullable;
 
 public class MyDBHelper extends SQLiteOpenHelper {
 
     public MyDBHelper(@Nullable Context context) {
-        super(context, "COMP4200DB", null, 1);
+        super(context, "COMP4200DB", null, 2);
     }
 
     @Override
@@ -42,18 +44,27 @@ public class MyDBHelper extends SQLiteOpenHelper {
         db.execSQL(createRewardsQuery);
         Log.d("MyDBHelper", "RewardsTable created");
 
+        // Creating Coupon table
+        String createCouponQuery = "CREATE TABLE couponTable(_id INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + "coupon TEXT NOT NULL"
+                + ")";
+        db.execSQL(createCouponQuery);
+        Log.d("MyDBHelper", "Coupon Table Created");
     }
 
+
     @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+    public void onUpgrade (SQLiteDatabase db,int oldVersion, int newVersion){
         //Drop the existing tables if they exist
         db.execSQL("DROP TABLE IF EXISTS userTable");
         db.execSQL("DROP TABLE IF EXISTS transactionTable");
         db.execSQL("DROP TABLE IF EXISTS rewardsTable");
+        db.execSQL("DROP TABLE IF EXISTS couponTable");
 
         // Recreate the tables by calling onCreate
         onCreate(db);
     }
+
 
 
     //METHODS FOR ADDING DB RECORDS
@@ -68,6 +79,7 @@ public class MyDBHelper extends SQLiteOpenHelper {
         // Inserting Row
         long newRowId = db.insert("userTable", null, values);
     }
+
 
     // Method to add a new transaction to the database
     public void addTransaction(double transactionTotal) {
@@ -160,9 +172,9 @@ public class MyDBHelper extends SQLiteOpenHelper {
         String[] selectionArgs = {String.valueOf(userId)};
         int rowsAffected = db.update("userTable", values, selection, selectionArgs);
         Log.d("MyDBHelper", "Rows affected: " + rowsAffected);
-        }
+    }
 
-        //Method to update the user Email in the Database
+    //Method to update the user Email in the Database
     public void updateEmail(int userId, String email){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -260,7 +272,7 @@ public class MyDBHelper extends SQLiteOpenHelper {
     }
 
 
-//METHODS FOR TRANSACTION TABLE
+    //METHODS FOR TRANSACTION TABLE
     //Get the transaction id and return the amount
     public double getAmountFromTransactionID(int transactionID) {
         SQLiteDatabase db = this.getReadableDatabase();
@@ -382,5 +394,25 @@ public class MyDBHelper extends SQLiteOpenHelper {
 
     }
 
+
+    //COUPON TABLE QUERIES
+    public String addCoupon() {
+        String couponCode = generateRandomCoupon();
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("coupon", couponCode);
+        long newRowId = db.insert("couponTable", null, values);
+        Log.d("MyDBHelper", "New coupon added with code: " + couponCode);
+        db.close();
+        return couponCode;
+    }
+
+
+    private String generateRandomCoupon() {
+        // Generate a random 6-digit number
+        Random random = new Random();
+        int randomNumber = random.nextInt(900000) + 100000;
+        return String.valueOf(randomNumber);
+    }
 
 }
