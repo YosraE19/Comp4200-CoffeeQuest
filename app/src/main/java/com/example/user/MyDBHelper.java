@@ -110,6 +110,48 @@ public class MyDBHelper extends SQLiteOpenHelper {
         return userNickname;
     }
 
+    public void updatePassword(String email, String newPassword) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("userPassword", newPassword);
+
+        String selection = "userEmail = ?";
+        String[] selectionArgs = {email};
+
+        int rowsAffected = db.update("userTable", values, selection, selectionArgs);
+        Log.d("MyDBHelper", "Rows affected: " + rowsAffected);
+
+        db.close(); // Close the database connection
+    }
+
+    public boolean isEmailExists(String email) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = null;
+        boolean emailExists = false;
+
+        try {
+            // Query to check if the email exists in the user table
+            String query = "SELECT COUNT(*) FROM userTable WHERE userEmail = ?";
+            cursor = db.rawQuery(query, new String[]{email});
+
+            if (cursor != null && cursor.moveToFirst()) {
+                int rowCount = cursor.getInt(0);
+                emailExists = rowCount > 0;
+            }
+        } catch (Exception e) {
+            Log.e("MyDBHelper", "Error checking if email exists: " + e.getMessage());
+        } finally {
+
+            if (cursor != null) {
+                cursor.close();
+            }
+            db.close();
+        }
+
+        return emailExists;
+    }
+
+
     //METHODS FOR REWARDS TABLE
     //method for updating user points in Rewards table
     public void updateRewardsPoints(int userId, int points) {
