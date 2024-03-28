@@ -16,25 +16,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/btn_signup"
-    android:background="#F8F8F8"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F8F8F8"
     tools:context=".MainActivity">
 
 
-    <TextView
+    <ImageView
         android:id="@+id/appNameLogIn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="144dp"
-        android:fontFamily="@font/blinker"
-        android:text="Café\nName"
-        android:textColor="#343341"
-        android:textSize="55sp"
-        android:textStyle="bold"
+        android:layout_width="401dp"
+        android:layout_height="143dp"
+        android:layout_marginTop="100dp"
+        android:src="@drawable/logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/cafe_logo" />
 
     <TextView
         android:id="@+id/textView2"
@@ -48,7 +46,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appNameLogIn" />
 
-    <ImageView
+    <!--ImageView
         android:id="@+id/appLogo"
         android:layout_width="100dp"
         android:layout_height="100dp"
@@ -56,7 +54,7 @@
         android:layout_marginEnd="44dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/sample_logo" />
+        app:srcCompat="@drawable/logo_icon" /-->
 
     <EditText
         android:id="@+id/email"
@@ -66,7 +64,7 @@
         android:layout_marginTop="32dp"
         android:ems="10"
         android:fontFamily="@font/blinker"
-        android:hint="Email"
+        android:hint="@string/email"
         android:inputType="textEmailAddress"
         android:textColor="#343341"
         app:layout_constraintStart_toStartOf="parent"
@@ -80,7 +78,7 @@
         android:layout_marginTop="11dp"
         android:ems="10"
         android:fontFamily="@font/blinker"
-        android:hint="Password"
+        android:hint="@string/password"
         android:inputType="textPassword"
         android:textColor="#343341"
         app:layout_constraintStart_toStartOf="parent"
@@ -92,7 +90,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
         android:layout_marginTop="8dp"
-        android:text="Remember Me"
+        android:text="@string/remember_me"
         android:textColor="#C1C1C1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pwd" />
@@ -104,7 +102,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="19dp"
         android:layout_marginEnd="44dp"
-        android:text="Forgot Password?"
+        android:text="@string/forgot_password"
         android:textColor="#C1C1C1"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -118,7 +116,7 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="20dp"
         android:backgroundTint="#343341"
-        android:text="Log In"
+        android:text="@string/log_in"
         android:textColor="#F8F8F8"
         android:textStyle="bold"
         app:cornerRadius="6dp"
@@ -132,15 +130,14 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="20dp"
         android:backgroundTint="#f8f8f8"
-        app:strokeColor="#343341"
-        app:strokeWidth="0.7dp"
-        android:text="Sign Up"
+        android:text="@string/sign_up"
         android:textColor="#343341"
         android:textStyle="bold"
         app:cornerRadius="6dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logIn" />
-
+        app:layout_constraintTop_toBottomOf="@+id/logIn"
+        app:strokeColor="#343341"
+        app:strokeWidth="0.7dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

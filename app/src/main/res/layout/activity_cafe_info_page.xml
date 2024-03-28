@@ -7,9 +7,7 @@
     android:background="#f8f8f8"
     tools:context=".CurrentOffers">
 
-    <!-- NAV BAR -->
-
-    <TextView
+      <TextView
         android:id="@+id/titleCafe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -26,6 +24,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"

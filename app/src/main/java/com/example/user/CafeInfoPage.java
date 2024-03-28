@@ -37,10 +37,10 @@ public class CafeInfoPage extends AppCompatActivity {
         GridLayoutManager layoutManager = new GridLayoutManager(this, 2); // 2 columns
         recyclerView.setLayoutManager(layoutManager);
 
-        dataSets.add(new MyDataSetCafeInfo("Cafe 1", R.drawable.sample_logo));
-        dataSets.add(new MyDataSetCafeInfo("Cafe 2", R.drawable.sample_logo));
-        dataSets.add(new MyDataSetCafeInfo("Cafe 3", R.drawable.sample_logo));
-        dataSets.add(new MyDataSetCafeInfo("Cafe 4", R.drawable.sample_logo));
+        dataSets.add(new MyDataSetCafeInfo("TIIMS", R.drawable.cafe_1));
+        dataSets.add(new MyDataSetCafeInfo("LUNA NOVA", R.drawable.cafe_2));
+        dataSets.add(new MyDataSetCafeInfo("MEOW COFFEEE", R.drawable.cafe_3));
+        dataSets.add(new MyDataSetCafeInfo("MAC CAFFE", R.drawable.cafe_4));
 
         MyAdapterCafeInfo myAdapter = new MyAdapterCafeInfo(dataSets, CafeInfoPage.this);
         recyclerView.setAdapter(myAdapter);

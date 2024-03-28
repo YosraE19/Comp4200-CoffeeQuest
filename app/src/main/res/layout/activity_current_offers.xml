@@ -7,9 +7,6 @@
     android:background="#f8f8f8"
     tools:context=".CurrentOffers">
 
-
-    <!-- NAV BAR -->
-
     <TextView
         android:id="@+id/titleOffers"
         android:layout_width="wrap_content"
