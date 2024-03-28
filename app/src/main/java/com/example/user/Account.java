@@ -69,9 +69,11 @@ public class Account extends AppCompatActivity {
         }
         Log.d("Account", "Received user ID: " + id);
 
+        //Updates user information in Database.
         saveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                    //Case handling if user leaves one or both fields empty.
                     if(newNickname.getText().toString().equals("") && newEmail.getText().toString().equals("")){
                         Toast.makeText(Account.this, "Please fill one or both fields", Toast.LENGTH_SHORT).show();
                     }
@@ -90,6 +92,7 @@ public class Account extends AppCompatActivity {
         buttonsOnManyActivities.HomeButton(this, homeBtn);
         buttonsOnManyActivities.pointsCard(this, pointsBtn);
 
+        //Logs user out then ends context.
         logOutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
