@@ -56,6 +56,18 @@ public class Account extends AppCompatActivity {
         buttonsOnManyActivities = new ButtonsOnManyActivities(this);
         buttonsOnManyActivities.HomeButton(this, homeBtn);
         buttonsOnManyActivities.pointsCard(this, pointsBtn);
+
+        logOutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent toMain = new Intent(Account.this, MainActivity.class);
+                startActivity(toMain);
+                finish();
+            }
+        });
+
+
         //nav bar functionality
 //        homeBtn.setOnClickListener(new View.OnClickListener() {
 //            @Override
