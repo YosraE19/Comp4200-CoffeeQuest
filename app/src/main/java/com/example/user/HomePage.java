@@ -1,8 +1,7 @@
 package com.example.user;
 
-import android.content.Intent;
+
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.activity.EdgeToEdge;
@@ -64,7 +63,7 @@ public class HomePage extends AppCompatActivity {
         dataSets.add(new DataSetHomePage("Rewards and Points", R.drawable.rewards_and_points));
         dataSets.add(new DataSetHomePage("Offers and Discounts", R.drawable.offers_and_discounts));
         dataSets.add(new DataSetHomePage("Order", R.drawable.order));
-        dataSets.add(new DataSetHomePage("Quest Destinations", R.drawable.sample_logo));
+        dataSets.add(new DataSetHomePage("Quest Destinations", R.drawable.cafe_info));
 
         adapter = new AdapterForHomePage(dataSets, this, id);
         recyclerView.setAdapter(adapter);

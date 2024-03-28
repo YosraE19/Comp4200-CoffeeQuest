@@ -63,9 +63,9 @@ public class CurrentOffers extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
 
-        dataSets.add(new MyDataSetCurrentOffers("Free Hot Drink (100 Points)", R.drawable.sample_logo));
-        dataSets.add(new MyDataSetCurrentOffers("50% of Order (500 Points)", R.drawable.sample_logo));
-        dataSets.add(new MyDataSetCurrentOffers("BOGO Food Items (150 Points)", R.drawable.sample_logo));
+        dataSets.add(new MyDataSetCurrentOffers("Free Hot Drink (100 Points)", R.drawable.hot_drink));
+        dataSets.add(new MyDataSetCurrentOffers("50% of Order (500 Points)", R.drawable.fifty_percent));
+        dataSets.add(new MyDataSetCurrentOffers("BOGO Food Items (150 Points)", R.drawable.food_item));
 
         MyAdapterCurrentOffers myAdapter = new MyAdapterCurrentOffers(dataSets, CurrentOffers.this, id, userPoints);
         recyclerView.setAdapter(myAdapter);

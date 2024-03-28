@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         //Initialize DB and insert default user/reward records
         MyDBHelper dbHelper = new MyDBHelper(getApplicationContext());
         // Insert initial user data -- ONLY INCLUDE ON FIRST LAUNCH OF APP
-
+        /*
         dbHelper.addUser("minern@uwindsor.ca", "minern", "Password!123");
         dbHelper.addUser("azzam2@uwindsor.ca", "azzam2", "Password!123");
         dbHelper.addUser("ismai11a@uwindsor.ca", "ismai11a", "Password!123");
@@ -58,7 +58,9 @@ public class MainActivity extends AppCompatActivity {
 
         dbHelper.addTransaction(2.93);
         dbHelper.addTransaction(15.65);
+        */
 
+        dbHelper.updateRewardsPoints(1, 780);
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -2,7 +2,6 @@ package com.example.user;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -41,10 +40,14 @@ public class SignUpPage extends AppCompatActivity {
 
 
         MyDBHelper dbHelper = new MyDBHelper(getApplicationContext());
+
+        String emailText = email.getText().toString();
+        String nicknameText = nickname.getText().toString();
+        String passwordText = password.getText().toString();
         sign_up.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(nickname.equals("")||nickname.equals("")||password.equals("")){
+                if(emailText.equals("")||nicknameText.equals("")||passwordText.equals("")){
                     Toast.makeText(SignUpPage.this, "Please fill in required info", Toast.LENGTH_LONG).show();
                 }
                 else {
@@ -52,6 +55,8 @@ public class SignUpPage extends AppCompatActivity {
                     try {
                         dbHelper.addUser(email.getText().toString(), nickname.getText().toString(), password.getText().toString());
                         Intent toLogin = new Intent(SignUpPage.this, MainActivity.class);
+                        int id = dbHelper.getID(email.getText().toString());
+                        dbHelper.addReward(10, id);
                         startActivity(toLogin);
                     }catch (Exception e){
 

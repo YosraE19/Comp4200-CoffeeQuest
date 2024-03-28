@@ -79,16 +79,6 @@ public class MyDBHelper extends SQLiteOpenHelper {
         long newRowId = db.insert("transactionTable", null, values);
     }
 
-    // Method to add a new reward to the database
-    public void addReward(int points, int userId) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put("points", points);
-        values.put("_idUser", userId);
-        // Inserting Row
-        long newRowId = db.insert("rewardsTable", null, values);
-    }
-
     //METHODS FOR USER TABLE
     //method for displaying userNickname on Rewards page
     public String getUserNickname(int userID) {
@@ -172,6 +162,37 @@ public class MyDBHelper extends SQLiteOpenHelper {
             }
         }
         return pointsValue;
+    }
+
+    // Method to add a new reward to the database if _idUser does not already exist
+    public void addReward(int points, int userId) {
+        if (!isUserIdExists(userId)) {
+            SQLiteDatabase db = this.getWritableDatabase();
+            ContentValues values = new ContentValues();
+            values.put("points", points);
+            values.put("_idUser", userId);
+            // Inserting Row
+            long newRowId = db.insert("rewardsTable", null, values);
+        } else {
+            Log.d("MyDBHelper", "User ID already exists in rewards table.");
+        }
+    }
+
+    // Method to check if _idUser already exists in the rewards table
+    private boolean isUserIdExists(int userId) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = null;
+        boolean exists = false;
+        try {
+            String query = "SELECT _idUser FROM rewardsTable WHERE _idUser = ?";
+            cursor = db.rawQuery(query, new String[]{String.valueOf(userId)});
+            exists = cursor != null && cursor.getCount() > 0;
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+        }
+        return exists;
     }
 
 

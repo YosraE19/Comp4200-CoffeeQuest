@@ -39,7 +39,7 @@ Reset Password Page:
         android:layout_marginEnd="44dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/sample_logo" />
+        app:srcCompat="@drawable/logo_icon" />
 
     <TextView
         android:id="@+id/textEnterCode"
