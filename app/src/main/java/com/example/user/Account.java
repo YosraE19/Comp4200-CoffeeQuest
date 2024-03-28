@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -43,6 +44,7 @@ public class Account extends AppCompatActivity {
             return insets;
         });
 
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         buttonsOnManyActivities = new ButtonsOnManyActivities(this);
 
         homeBtn = findViewById(R.id.homeButtonOrder);
@@ -52,29 +54,32 @@ public class Account extends AppCompatActivity {
         saveBtn = findViewById(R.id.saveBtn);
         frame = findViewById(R.id.frame);
 
+        buttonsOnManyActivities = new ButtonsOnManyActivities(this);
+        buttonsOnManyActivities.HomeButton(this, homeBtn);
+        buttonsOnManyActivities.pointsCard(this, pointsBtn);
         //nav bar functionality
-        homeBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent goHome = new Intent(Account.this, HomePage.class);
-                startActivity(goHome);
-            }
-        });
-
-        pointsBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent goPoints = new Intent(Account.this, Points_Card.class);
-                startActivity(goPoints);
-            }
-        });
-
-        accountBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent goAccount = new Intent(Account.this, null);
-            }
-        });
+//        homeBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent goHome = new Intent(Account.this, HomePage.class);
+//                startActivity(goHome);
+//            }
+//        });
+//
+//        pointsBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent goPoints = new Intent(Account.this, Points_Card.class);
+//                startActivity(goPoints);
+//            }
+//        });
+//
+//        accountBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//            }
+//        });
 
     }
 }
