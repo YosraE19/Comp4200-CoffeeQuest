@@ -66,8 +66,19 @@ public class MyAdapterCurrentOffers extends RecyclerView.Adapter<MyAdapterCurren
                             dbHelper.updateRewardsPoints(id, updatedPoints);
                             currentPoints = dbHelper.getPointsValue(id);
 
-                            String msg = "Offer " + (position + 1) + " redeemed!";
-                            Toast.makeText(context.getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
+                            //generate coupon code
+                            String couponCode = dbHelper.addCoupon();
+
+                            new AlertDialog.Builder(context)
+                                    .setTitle("Coupon Redeemed")
+                                    .setMessage("Your coupon code: " + couponCode)
+                                    .setPositiveButton("Close", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            dialog.dismiss(); // Close the dialog box
+                                        }
+                                    })
+                                    .show(); // Show the dialog box
 
                             // Refresh userPoints TextView with new points value
                             refreshUserPoints();
