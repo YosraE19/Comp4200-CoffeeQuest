@@ -41,13 +41,10 @@ public class SignUpPage extends AppCompatActivity {
 
         MyDBHelper dbHelper = new MyDBHelper(getApplicationContext());
 
-        String emailText = email.getText().toString();
-        String nicknameText = nickname.getText().toString();
-        String passwordText = password.getText().toString();
         sign_up.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(emailText.equals("")||nicknameText.equals("")||passwordText.equals("")){
+                if(email.equals("")||nickname.equals("")||password.equals("")){
                     Toast.makeText(SignUpPage.this, "Please fill in required info", Toast.LENGTH_LONG).show();
                 }
                 else {
