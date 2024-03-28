@@ -5,7 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".transaction_history">
+    tools:context=".transaction_history"
+    android:background="#f8f8f8">
 
     <TextView
         android:id="@+id/titleTransactionHistory"
@@ -108,5 +109,7 @@
 
 
     </TableLayout>
+
+    <!--Nav Bar-->
 
 </RelativeLayout>
