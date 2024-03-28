@@ -58,7 +58,7 @@ public class points_card_activity extends AppCompatActivity {
         //call the action bar:
         actionBar = getSupportActionBar();
         //show the back button in the action bar:
-        actionBar.setDisplayHomeAsUpEnabled(true);
+        //actionBar.setDisplayHomeAsUpEnabled(true);
 
         //When the home button is pressed it will take the user to the home page:
         //call the home button listener function from the ButtonsOnManyActivities

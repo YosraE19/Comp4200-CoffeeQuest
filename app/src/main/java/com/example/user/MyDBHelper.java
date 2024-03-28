@@ -151,6 +151,7 @@ public class MyDBHelper extends SQLiteOpenHelper {
         return emailExists;
     }
 
+    //Method to update the user nickname in the Database.
     public void updateNickname(int userId, String name){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -159,7 +160,10 @@ public class MyDBHelper extends SQLiteOpenHelper {
         String[] selectionArgs = {String.valueOf(userId)};
         int rowsAffected = db.update("userTable", values, selection, selectionArgs);
         Log.d("MyDBHelper", "Rows affected: " + rowsAffected);
-    }public void updateEmail(int userId, String email){
+        }
+
+        //Method to update the user Email in the Database
+    public void updateEmail(int userId, String email){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("userEmail", email);
@@ -321,6 +325,8 @@ public class MyDBHelper extends SQLiteOpenHelper {
         }
         return isConverted;
     }
+
+    //Method to make sure the users Email and Password matchs the Email and Password in the Database.
     public Boolean checkUserPass(String email, String pass) {
         SQLiteDatabase MyDB = this.getWritableDatabase();
         Cursor cursor = null;
@@ -336,6 +342,7 @@ public class MyDBHelper extends SQLiteOpenHelper {
         else
             return false;
     }
+    //Method to retrieve the ser ID using the inputed email.
     public int getID(String email){
         int id = -1;
         Cursor cursor = null;

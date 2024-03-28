@@ -41,13 +41,16 @@ public class SignUpPage extends AppCompatActivity {
 
         MyDBHelper dbHelper = new MyDBHelper(getApplicationContext());
 
+        //Creates a new user.
         sign_up.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //Makes sure no fields are left empty.
                 if(email.equals("")||nickname.equals("")||password.equals("")){
                     Toast.makeText(SignUpPage.this, "Please fill in required info", Toast.LENGTH_LONG).show();
                 }
                 else {
+                    //Password must be at least 7 characters long
                     if(password.length()>6)
                     try {
                         dbHelper.addUser(email.getText().toString(), nickname.getText().toString(), password.getText().toString());
