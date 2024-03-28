@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".transaction_history">
+
+    <TextView
+        android:id="@+id/titleTransactionHistory"
+        android:layout_width="match_parent"
+        android:layout_marginTop="60dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/blinker"
+        android:gravity="center"
+        android:text="Recent Transactions"
+        android:textColor="#343341"
+        android:textSize="45sp"
+        android:textStyle="bold" />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="40dp"
+        android:background="@android:color/white"
+        android:layout_centerInParent="true">
+
+        <!-- Table Heading -->
+
+        <TableRow android:background="@color/white">
+
+            <TextView
+                android:id="@+id/head_transaction_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="Transaction ID"
+                android:textColor="#343341"
+                android:textStyle="bold"
+                android:fontFamily="@font/blinker"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/head_table_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="Amount"
+                android:textColor="#343341"
+                android:textStyle="bold"
+                android:fontFamily="@font/blinker"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/head_table_points"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="Points"
+                android:textColor="#343341"
+                android:textStyle="bold"
+                android:fontFamily="@font/blinker"
+                android:textSize="14sp" />
+
+
+        </TableRow>
+
+        <!-- Table Data -->
+
+        <TableRow>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="1"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="2.93"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="23"
+                android:textSize="12sp" />
+
+        </TableRow>
+
+
+
+    </TableLayout>
+
+</RelativeLayout>
