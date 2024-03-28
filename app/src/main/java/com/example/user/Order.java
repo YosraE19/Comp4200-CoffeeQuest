@@ -58,14 +58,14 @@ public class Order extends AppCompatActivity {
             id = extras.getInt("id");
         }
         Log.d("Order", "Received user ID: " + id);
-        //set up the action bar
+    //set up the action bar
         bottomActionBar = (Toolbar) findViewById(R.id.bottomActionBar);
         setSupportActionBar(bottomActionBar);
 
         //call the action bar:
         actionBar = getSupportActionBar();
         //show the back button in the action bar:
-        actionBar.setDisplayHomeAsUpEnabled(true);
+        //actionBar.setDisplayHomeAsUpEnabled(true);
 
 
         //Will display the points card to the user onto the frame
