@@ -186,6 +186,7 @@ public class MyDBHelper extends SQLiteOpenHelper {
         Log.d("MyDBHelper", "Rows affected: " + rowsAffected);
     }
 
+
     //Method to update the user Email in the Database
     public void updateEmail(int userId, String email){
         SQLiteDatabase db = this.getWritableDatabase();
@@ -250,6 +251,55 @@ public class MyDBHelper extends SQLiteOpenHelper {
             }
         }
         return pointsValue;
+    }
+    public Double[] getTable(int id){
+        SQLiteDatabase db = this.getReadableDatabase();
+        String[] projection = {"_idTransaction", "transactionTotal", "converted"};
+        String selection = "_idTransaction = ?";
+        String[] selectionArgs = {String.valueOf(id)};
+        Cursor cursor = db.query("transactionTable", projection, selection, selectionArgs, null, null, null);
+        Double tID=0.0;
+        Double amount=0.0;
+        Double pts=0.0;
+        Double[] transaction = {};
+        try {
+            if (cursor != null && cursor.moveToFirst()) {
+                int tIDIndex = cursor.getColumnIndex("_idTransaction");
+                if (tIDIndex != -1) {
+                    tID = cursor.getDouble(tIDIndex);
+                    Log.d("MyDBHelper", "Transaction ID: " + tID);
+                } else {
+                    Log.e("MyDBHelper", "Column 'tID' not found in cursor.");
+                }
+
+                int amountIndex = cursor.getColumnIndex("transactionTotal");
+                if (amountIndex != -1) {
+                    amount = cursor.getDouble(amountIndex);
+                    Log.d("MyDBHelper", "TransactionTotal: " + amount);
+                } else {
+                    Log.e("MyDBHelper", "Column 'transactionTotal' not found in cursor.");
+                }
+            }
+            int ptsIndex = cursor.getColumnIndex("converted");
+            if (ptsIndex != -1) {
+                pts = cursor.getDouble(ptsIndex);
+                Log.d("MyDBHelper", "pts: " + tID);
+            } else {
+                Log.e("MyDBHelper", "Column 'pts' not found in cursor.");
+            }
+        } catch (Exception e) {
+            Log.e("MyDBHelper", "Error fetching user info: " + e.getMessage());
+        } finally {
+            // Close the cursor
+            if (cursor != null) {
+                cursor.close();
+            }
+        }
+        transaction[0] = tID;
+        transaction[1] = amount;
+        transaction[2] = pts;
+
+        return transaction;
     }
 
     // Method to add a new reward to the database if _idUser does not already exist
