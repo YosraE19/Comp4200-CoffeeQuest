@@ -6,5 +6,4 @@
   The Key Features of Our Product
   
   <img src="https://github.com/YoshiAi19/Comp4200-User/assets/102384009/1fbbc2f7-b0fd-4ace-a03c-8beecff4f447" alt="key features">
-  
 </p>
